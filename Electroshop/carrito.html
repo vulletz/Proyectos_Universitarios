@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página Principal</title>
+  <style>
+    /* Estilos CSS para la barra de navegación */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #051517;
+      color: white;
+      padding: 10px 20px;
+    }
+
+    /* Estilos CSS para los botones */
+    .btn {
+      padding: 8px 16px;
+      background-color: #05181B;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #777;
+    }
+
+    /* Estilos CSS para el menú lateral */
+    .sidebar {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: #05181B;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+      z-index: 1000;
+    }
+
+    .sidebar a {
+      padding: 10px 15px;
+      text-decoration: none;
+      font-size: 20px;
+      color: white;
+      display: block;
+      transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #777;
+    }
+
+    .sidebar .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 24px;
+    }
+
+    /* Estilos CSS para la sección intermedia */
+    .middle-section {
+      background-color: #F1F1F1;
+      padding: 20px;
+      text-align: center;
+    }
+    .cart-items {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .cart-item {
+      border: 1px solid #ddd;
+      margin-bottom: 20px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+    }
+
+    .cart-item img {
+      width: 100px;
+      margin-right: 20px;
+    }
+
+    .cart-item-details {
+      flex-grow: 1;
+    }
+
+    .cart-item-details h3 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    .cart-item-details p {
+      margin: 5px 0;
+    }
+
+    .cart-item-total {
+      font-size: 20px;
+    }
+    /* Estilos CSS para el pie de página */
+    .footer {
+      background-color: #051517;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .footer a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    body {
+      background-color: #FFF;
+      margin: 0; /* Elimina el margen predeterminado del cuerpo */
+    }
+
+    h1 {
+      color: #051517;
+    }
+
+    /* Estilos CSS para el botón de contacto */
+    #contactoBtn {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <!-- Parte superior: Barra de navegación -->
+  <div class="navbar">
+    <!-- Reemplazar el texto del botón con la imagen -->
+    <img src="menu.png" alt="Menu" class="btn" id="menuBtn" onclick="openSidebar()" style="width: 40px; height: 40px;">
+    <a href="#" id="logo"><img src="logo.png" alt="Logo" width="111" height="85"></a>
+    <input type="text" class="featured-items" size="80" placeholder="Buscar...">
+    <a href="carrito.html" class="btn">Carrito</a>
+    <a href="articulos.html" class="btn">Artículos</a>
+    <!-- Botón de contacto -->
+    <div id="contactoBtn" class="btn" onclick="scrollToFooter()">Contacto</div>
+  </div>
+
+  <!-- Sección intermedia -->
+  <div class="middle-section">
+    <h1>Carrito</h1>
+    <div class="cart-items" id="cartItems">
+      <!-- Los elementos del carrito se generarán aquí dinámicamente -->
+    </div>
+  </div>
+
+  <!-- Menú lateral -->
+  <div id="sidebar" class="sidebar">
+    <a href="javascript:void(0)" class="close-btn" onclick="closeSidebar()">&times;</a>
+    <a href="index.html">Inicio</a>
+    <a href="articulos.html">Artículos</a>
+    <a href="contacto.html">Contacto</a>
+    <a href="sobre_nosotros.html">Sobre Nosotros</a>
+  </div>
+
+  <!-- Pie de página -->
+  <footer class="footer">
+    <div>Contacto: ejemplo@correo.com | Teléfono: +123456789</div>
+    <div>
+      <a href="#">Facebook</a>
+      <a href="#">Twitter</a>
+      <a href="#">Instagram</a>
+      <!-- Hipervínculo para "Sobre Nosotros" -->
+      <a href="sobre_nosotros.html" onclick="scrollToFooter()">Sobre Nosotros</a>
+    </div>
+  </footer>
+
+  <script>
+    // Función para abrir el menú lateral
+    function openSidebar() {
+      document.getElementById("sidebar").style.width = "250px";
+    }
+
+    // Función para cerrar el menú lateral
+    function closeSidebar() {
+      document.getElementById("sidebar").style.width = "0";
+    }
+
+    // Función para desplazarse al pie de página
+    function scrollToFooter() {
+      document.querySelector('.footer').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    document.getElementById('logo').addEventListener('click', function(event) {
+      // Volver a la página principal
+      event.preventDefault(); // Evitar que se abra la página de destino del logo
+      window.location.href = 'index.html';
+    });
+
+    // Cargar los elementos del carrito desde el JSON
+    fetch('productos.json')
+      .then(response => response.json())
+      .then(data => {
+        const cartItems = document.getElementById('cartItems');
+        data.forEach(product => {
+          if (product.carrito === true) {
+            const cartItemDiv = document.createElement('div');
+            cartItemDiv.className = 'cart-item';
+            cartItemDiv.innerHTML = `
+              <img src="${product.image}" alt="${product.name}">
+              <div class="cart-item-details">
+                <h3>${product.name}</h3>
+                <p>Precio: $${product.price}</p>
+                <p>Cantidad: 1</p>
+              </div>
+              <div class="cart-item-total">$${product.price}</div>
+              <button class="action-btn">Eliminar</button>
+            `;
+            cartItems.appendChild(cartItemDiv);
+          }
+        });
+      })
+      .catch(error => console.error('Error al cargar los elementos del carrito:', error));
+  </script>
+</body>
+</html>

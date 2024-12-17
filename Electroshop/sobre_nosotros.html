@@ -1,0 +1,364 @@
+      <!DOCTYPE html>
+      <html lang="es">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Página Principal</title>
+        <style>
+          /* Estilos CSS para la barra de navegación */
+          .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #051517;
+            color: white;
+            padding: 10px 20px;
+          }
+
+          /* Estilos CSS para los botones */
+          .btn {
+            padding: 8px 16px;
+            background-color: #05181B;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+          }
+
+          .btn:hover {
+            background-color: #777;
+          }
+
+          /* Estilos CSS para el menú lateral */
+          .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #05181B;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            z-index: 1000;
+          }
+
+          .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 20px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+          }
+
+          .sidebar a:hover {
+            background-color: #777;
+          }
+
+          .sidebar .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+          }
+
+          /* Estilos CSS para la sección intermedia */
+          .middle-section {
+            background-color: #FFFFF;
+            padding: 20px;
+            text-align: center;
+          }
+
+          /* Estilos CSS para el pie de página */
+          .footer {
+            background-color: #051517;
+            color: white;
+            padding: 20px;
+            text-align: center;
+          }
+
+          .footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+          }
+
+          body {
+            background-color: #FFF;
+            margin: 0; /* Elimina el margen predeterminado del cuerpo */
+          }
+
+          h1 {
+            color: #051517;
+          }
+
+          /* Estilos CSS para el botón de contacto */
+          #contactoBtn {
+            cursor: pointer;
+          }
+
+          /* Estilos para la segunda sección */
+          .seccion2 {
+            background-color: #e0e0e0;
+            padding: 20px;
+          }
+        </style>
+      </head>
+      <body>
+        <!-- Parte superior: Barra de navegación -->
+        <div class="navbar">
+          <!-- Reemplazar el texto del botón con la imagen -->
+          <img src="menu.png" alt="Menu" class="btn" id="menuBtn" onclick="openSidebar()" style="width: 40px; height: 40px;">
+          <a href="#" id="logo"><img src="logo.png" alt="Logo" width="111" height="85"></a>
+          <input type="text" class="featured-items" size="80" placeholder="Buscar...">
+          
+          <a href="articulos.html" class="btn">Artículos</a>
+          <!-- Botón de contacto -->
+          <div id="contactoBtn" class="btn" onclick="scrollToFooter()">Contacto</div>
+        </div>
+
+
+        <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Texto sobre una imagen</title>
+        <style>
+          .contenedor {
+            position: relative;
+            display: inline-block;
+          }
+          .imagen {
+            display: block;
+            width: 60;
+            height: 0;
+          }
+          .texto-superpuesto {
+            position: absolute;
+            top: 30%;
+            left: 60%;
+            transform: translate(-10%, -10%);
+            color: black;
+            font-size: 40px;
+            font-family: Arial, sans-serif;
+          }
+        </style>
+        </head>
+        <body>
+
+        <div class="contenedor">
+          <img src="fondo.jpg" alt="Descripción de tu imagen" class="imagen">
+          <div class="texto-superpuesto">Sobre Nosotros...</div>
+        </div>
+
+          <h1>¿Quíenes somos?</h1>
+          <p>ElectroShop es una empresa 100% mexicana dedicada a la comercialización y venta de aparatos electrónicos. Tenemos presencia en varias ciudades del país, con más de 5 tiendas, con especial cobertura en Cuidad de México, Querétaro y Guadalajara 
+            </p> 
+          <p>
+            Todos nuestros productos se inspeccionan, ya que contamos con una oficina de control de calidad porque nuestros clientes siempre son prioridad. Cada que ellos compren un producto de electrónica en nuestra tienda online o sucursales, siempre se llevarán un artículo fabricado con materiales de calidad y duraderos. </p> 
+            
+          
+<!--apartado de mision,visión valores-->
+
+            <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Misión y Visión</title>
+            <style>
+              .contenedor {
+                display: flex;
+                flex-wrap: wrap;
+                overflow: hidden; /* Oculta el contenido fuera del contenedor */
+              }
+              .bloque {
+                flex: 1;
+                padding: 18px;
+                box-sizing: border-box;
+                transition: transform 0.5s; /* Transición para el efecto de zoom */
+              }
+              .mision {
+                background-color: #051517; /* Color para la sección de la misión */
+              }
+              .vision {
+                background-color:#051517; /* Color para la sección de la visión */
+              }
+        
+              .imagen {
+                width: 50%;
+                height: auto;
+                order: 1; /* Esto cambia el orden de la imagen en dispositivos móviles */
+                transition: transform 0.10s; /* Transición para el efecto de zoom */
+              }
+              .texto {
+                color: white;
+                font-size: 18px;
+                font-family: Arial, sans-serif;
+              }
+              /* Estilos para el efecto de zoom */
+              .zoom-in {
+                transform: scale(1.2); /* Aumenta el tamaño al hacer zoom */
+              }
+            </style>
+            </head>
+            <body>
+
+            <div class="contenedor">
+              <div class="bloque mision">
+                
+                <div class="texto">
+                  <h2>Misión</h2>
+                  <p>Mejorar la vida de las personas con soluciones en tecnología.</p>
+                </div>
+              </div>
+              <div class="bloque vision">
+                <div class="texto">
+                  <h2>Visión</h2>
+                  <p>Ser una empresa en constante crecimiento, rentable y vanguardista con excelencia operativa y vocación de servicio.</p>
+                </div>
+              </div>
+              <div>
+               </div>
+              
+            </div>
+
+            <script>
+              window.addEventListener('scroll', function() {
+                var elementos = document.querySelectorAll('.bloque, .imagen');
+                var scrollTop = window.pageYOffset;
+
+                elementos.forEach(function(elemento) {
+                  var offsetTop = elemento.offsetTop;
+                  var distancia = offsetTop - scrollTop;
+
+                  if (distancia < window.innerHeight * 0.6 && distancia > -window.innerHeight * 0.6) {
+                    elemento.classList.add('zoom-in');
+                  } else {
+                    elemento.classList.remove('zoom-in');
+                  }
+                });
+              });
+            </script>
+
+            </body>
+
+
+          <!-- Sección intermedia -->
+            <div class="middle-section">
+
+              <h1>Nuestro equipo de trabajo</h1>
+              
+              <a href="#" id="logo"><img src="equipo1.jpg" alt="nosotros" style=" width: 50%; height:auto; "></a>
+
+              <p>Nuestro equipo de trabajo es compuesto por profesionales altamente calificados</p>
+            </div>
+          <!--termina cuerpo de seccion intermedia-->
+
+          <!--seccion de conocenos-->
+
+
+          
+          <!--termina sección-->
+          <style>
+            .contenedor-tarjetas {
+              display: flex;
+              justify-content: space-between; /* Distribuye las tarjetas de manera uniforme */
+              margin: 10px;
+            }
+            .tarjeta {
+              width: calc(33.33% - 20px); /* Ancho de cada tarjeta (33.33% del ancho del contenedor menos el margen entre ellas) */
+              border-radius: 8px;
+              overflow: hidden; /* Para que la imagen no sobresalga de la tarjeta */
+              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+              transition: transform 0.3s;
+            }
+            .tarjeta:hover {
+              transform: scale(1.05); /* Aplica un efecto de zoom al pasar el cursor */
+            }
+            img {
+              width: 55%;
+              height: auto;
+              display: middle;
+            }
+          </style>
+          </head>
+          <body>
+
+          <div class="contenedor-tarjetas">
+            <div class="tarjeta">
+              <img src="Sebas.jpeg" alt="Descripción de la imagen 1" position="middle">
+              <div class="contenido">
+                <h5>Sebastian Heredia Pardo</h5>
+                <h6>Visionario fundador y CEO de ElectroShop, una de las empresas líderes en la venta de productos electrónicos en el mercado nacional. Con una sólida formación en Ingeniería Electrónica por la Universidad Politécnica.
+                  <p>Sebastian es conocido por su enfoque emprendedor y su capacidad para anticipar y adaptarse a las cambiantes tendencias del sector tecnológico.</p>
+              </h6>
+        </div>
+            </div>
+
+            <div class="tarjeta">
+              <img src="Abigail2.jpg" alt="Descripción de la imagen 2">
+              <div class="contenido">
+                <h5>Yanet Abigail Cuapio Sánchez</h5>
+                <p><h6>Yanet aporta una combinación única de habilidades que integran el conocimiento técnico con una capacidad innata para conectar con los clientes. Es Licenciada en Marketing por la Universidad de Negocios y tiene un Diplomado en Diseño Gráfico por la Escuela de Arte y Tecnología.
+
+           <p>En su rol como Jefa de Ventas y Diseño en ElectroShop, Yanet ha sido fundamental en la creación y ejecución de estrategias de ventas que no solo han aumentado significativamente los ingresos, sino que también han fortalecido la lealtad del cliente</p></h6></p>
+              </div>
+            </div>
+
+            <div class="tarjeta">
+              <img src="vic.png" alt="Descripción de la imagen 3">
+              <div class="contenido">
+                <h5>Víctor Ramírez Ortíz</h5>
+                <p><h6>Víctor ha desempeñado un papel crucial en la modernización de nuestras plataformas digitales y la implementación de sistemas de vanguardia que mejoran la eficiencia operativa y la experiencia del cliente. 
+                  <p></p>Víctor es reconocido por su capacidad para traducir conceptos tecnológicos complejos en soluciones prácticas y accesibles para la empresa</h6></p></p>
+              </div>
+            </div>
+          </div>
+
+          </body>
+  
+</div>        
+        <!-- Menú lateral -->
+        <div id="sidebar" class="sidebar">
+          <a href="javascript:void(0)" class="close-btn" onclick="closeSidebar()">&times;</a>
+          <a href="index.html">Inicio</a>
+          <a href="articulos.html">Artículos</a>
+          <a href="contacto.html">Contacto</a>
+          <a href="sobre_nosotros.html">Sobre Nosotros</a>
+        </div>
+
+        <!-- Pie de página -->
+        <footer class="footer">
+          <div>Contacto: ejemplo@correo.com | Teléfono: +123456789</div>
+          <div>
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
+            <!-- Hipervínculo para "Sobre Nosotros" -->
+            <a href="sobre_nosotros.html" onclick="scrollToFooter()">Sobre Nosotros</a>
+          </div>
+        </footer>
+
+        <script>
+          // Función para abrir el menú lateral
+          function openSidebar() {
+            document.getElementById("sidebar").style.width = "250px";
+          }
+
+          // Función para cerrar el menú lateral
+          function closeSidebar() {
+            document.getElementById("sidebar").style.width = "0";
+          }
+
+          // Función para desplazarse al pie de página
+          function scrollToFooter() {
+            document.querySelector('.footer').scrollIntoView({ behavior: 'smooth' });
+          }
+
+          document.getElementById('logo').addEventListener('click', function(event) {
+            // Volver a la página principal
+            event.preventDefault(); // Evitar que se abra la página de destino del logo
+            window.location.href = 'index.html';
+          });
+        </script>
+      </body>
+      </html>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#041C3C"
+    tools:context=".menu_principal">
+
+    <Button
+        android:id="@+id/btnConfiguracionSensores"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Configuracion de Sensores"
+        android:textColor="#041C3C"
+        android:background="#E5F4FB"
+        android:layout_margin="10dp"/>
+
+    <Button
+        android:id="@+id/btnAlertasSeguridad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Alertas de Seguridad"
+        android:textColor="#041C3C"
+        android:background="#E5F4FB"
+        android:layout_margin="10dp"/>
+
+    <Button
+        android:id="@+id/btnResumenDiario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Resumen Diario"
+        android:textColor="#041C3C"
+        android:background="#E5F4FB"
+        android:layout_margin="10dp"/>
+
+    <Button
+        android:id="@+id/connectButton"
+        android:layout_width="139dp"
+        android:layout_height="wrap_content"
+        android:text="Conectar Bluetooth" />
+
+
+</LinearLayout>

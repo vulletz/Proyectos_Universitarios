@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1,
+    "name": "Pila alcalina 9V (cuadrada)",
+    "price": 49.00,
+    "image": "pila.webp",
+    "carrito": false
+  },
+  {
+    "id": 2,
+    "name": "Extensión puerto GPIO a protoboard para Raspberry Pi 3",
+    "price": 159.00,
+    "image": "gpio.webp",
+    "carrito": false
+  },
+  {
+    "id": 3,
+    "name": "Sensor con acelerómetro y giroscopio",
+    "price": 89.00,
+    "image": "acelerometro.webp",
+    "carrito": false
+  },
+  {
+    "id": 4,
+    "name": "Sensor de humo y gas",
+    "price": 79.00,
+    "image": "humo.webp",
+    "carrito": false
+  },
+  {
+    "id": 5,
+    "name": "Raspberry Pi 4 Modelo B con RAM de 4GB",
+    "price": 2490.00,
+    "image": "raspberry.webp",
+    "carrito": false
+  },
+  {
+    "id": 6,
+    "name": "Placa de desarrollo NANO",
+    "price": 219.00,
+    "image": "nano.webp",
+    "carrito": false
+  },
+  {
+    "id": 7,
+    "name": "Pinza multiherramientas 24 en 1",
+    "price": 199.00,
+    "image": "pinzamulti.webp",
+    "carrito": false
+  },
+  {
+    "id": 8,
+    "name": "Herramienta profesional de impacto (ponchadora) para jack RJ45, con navaja reversible",
+    "price": 599.00,
+    "image": "ponchadora.webp",
+    "carrito": false
+  },
+  {
+    "id": 9,
+    "name": "Pinza de compresión",
+    "price": 239.00,
+    "image": "compresion.webp",
+    "carrito": false
+  },
+  {
+    "id": 10,
+    "name": "Foco LED con sensor de movimiento, 10 W",
+    "price": 199.00,
+    "image": "foco.webp",
+    "carrito": false
+  },
+  {
+    "id": 11,
+    "name": "Sistema de seguridad Wi-Fi* con alarma, 3 sensores y control remoto",
+    "price": 1490.00,
+    "image": "seguridad.webp",
+    "carrito": false
+  },
+  {
+    "id": 12,
+    "name": "Modulador fijo con filtro SAW, para canal T (33)",
+    "price": 3490.00,
+    "image": "modulador.webp",
+    "carrito": false
+  },
+  {
+    "id": 13,
+    "name": "Memoria USB dual, tipo C y A, de 64 GB",
+    "price": 299.00,
+    "image": "usb.webp",
+    "carrito": false
+  },
+  {
+    "id": 14,
+    "name": "Sensor de polvo",
+    "price": 159.00,
+    "image": "polvo.webp",
+    "carrito": false
+  },
+  {
+    "id": 15,
+    "name": "Display de 4 dígitos, 7 segmentos c/u, cátodo común",
+    "price": 29.00,
+    "image": "display.webp",
+    "carrito": false
+  },
+  {
+    "id": 16,
+    "name": "Modulo USB",
+    "price": 199.00,
+    "image": "modulousb.webp",
+    "carrito": false
+  },
+  {
+    "id": 17,
+    "name": "Kit bobina de Tesla para armar",
+    "price": 199.00,
+    "image": "kittesla.webp",
+    "carrito": false
+  },
+  {
+    "id": 18,
+    "name": "LED de 5 mm bicolor, prende rojo o verde",
+    "price": 4.00,
+    "image": "ledbicolor.webp",
+    "carrito": false
+  },
+  {
+    "id": 19,
+    "name": "Ventilador plástico de 6\", 12 Vcc",
+    "price": 159.00,
+    "image": "ventilador.webp",
+    "carrito": false
+  },
+  {
+    "id": 20,
+    "name": "Cloruro férrico de 930 ml",
+    "price": 99.00,
+    "image": "cloruro.webp",
+    "carrito": false
+  }
+]

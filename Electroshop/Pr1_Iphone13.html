@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iphone 13, 128 GB</title>
+  <style>
+    /* Estilos CSS para la barra de navegación */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #051517;
+      color: white;
+      padding: 10px 20px;
+    }
+
+    /* Estilos CSS para los botones */
+    .btn {
+      padding: 16px 32px;
+      background-color: #05181B;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 20px; /* Espacio entre los botones */
+    }
+
+    .new-btn {
+      padding: 8px 16px;
+      background-color: #05181B;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      float: right; /* Alinea el botón a la derecha */
+      margin-left: 10px; /* Agrega un margen a la izquierda para separarlo del botón "Agregar al carrito" */
+    }
+
+    .btn:hover {
+      background-color: #777;
+    }
+
+    /* Estilos CSS para el menú lateral */
+    .sidebar {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: #05181B;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+      z-index: 1000;
+    }
+
+    .sidebar a {
+      padding: 10px 15px;
+      text-decoration: none;
+      font-size: 20px;
+      color: white;
+      display: block;
+      transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #777;
+    }
+
+    .sidebar .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 24px;
+    }
+
+    /* Estilos CSS para la sección intermedia */
+    .middle-section {
+      background-color: #F1F1F1;
+      padding: 10px;
+      text-align: center;
+      
+    }
+
+    /* Estilos CSS para el pie de página */
+
+    .footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #051517;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    body {
+      background-color: #FFF;
+      margin: 0; /* Elimina el margen predeterminado del cuerpo */
+    }
+
+    h1 {
+      color: #051517;
+    }
+
+    /* Estilos CSS para el botón de contacto */
+    #contactoBtn {
+      cursor: pointer;
+    }
+
+    .article {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 10px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    thumbnail-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    .thumbnail {
+      width: 60px;
+      height: 60px;
+      margin-top: 20px;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    .thumbnail:hover {
+      border: 1px solid #333;
+    }
+
+    .image-container {
+      width: 40%;
+    }
+
+    .image-container img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .info-container {
+      width: 50%;
+      text-align: left; /* Alinea el texto a la izquierda */
+    }
+
+    @media (max-width: 768px) {
+      /* Estilos para pantallas más pequeñas */
+      .article {
+        flex-direction: column;
+      }
+
+      .image-container {
+        width: 100%;
+      }
+
+      .info-container {
+        width: 100%; /* Cambia el ancho al 100% */
+        text-align: left; /* Alinea el texto a la izquierda */
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Parte superior: Barra de navegación -->
+  <div class="navbar">
+    <!-- Reemplazar el texto del botón con la imagen -->
+    <img src="menu.png" alt="Menu" class="btn" id="menuBtn" onclick="openSidebar()" style="width: 40px; height: 40px;">
+    <a href="#" id="logo"><img src="logo.png" alt="Logo" width="111" height="85"></a>
+    <input type="text" class="featured-items" size="80" placeholder="Buscar...">
+    
+    <a href="articulos.html" class="btn">Artículos</a>
+    <!-- Botón de contacto -->
+    <div id="contactoBtn" class="btn" onclick="scrollToFooter()">Contacto</div>
+  </div>
+
+  <!--Menu de compra del producto-->
+  <!-- Sección intermedia -->
+  <div class="middle-section">
+    <div class="articles-container">
+      <div class="article">
+        <div class="image-container">
+          <img src="iphone.jpg" alt="iPhone" id="main-image">
+          <div class="thumbnail-container">
+            <img src="iphone.jpg" alt="iPhone" class="thumbnail" onmouseover="changeImage(this)">
+            <img src="Iphone2.png" alt="Iphone2" class="thumbnail" onmouseover="changeImage(this)">
+            <img src="iphone3.png" alt="iPhone3" class="thumbnail" onmouseover="changeImage(this)">
+          </div>
+        </div>
+        <div class="info-container">
+          <h1>Apple iPhone 13, 128GB, Medianoche (Reacondicionado)</h1>
+          <p>
+            <br>
+            <br>
+            Marca: Apple</p>
+          <p>Nombre del modelo: 13</p>
+          <p>Operador inalámbrico: Todas las empresas de transportes</p>
+          <!-- Agregar más información aquí -->
+          <h2>Precio: $7,898.36</h2>
+          <br>
+          <div class="button-group">
+            <button class="new-btn">Comprar Ahora</button> <!-- Nuevo botón -->
+            <button class="add-to-cart-btn" data-id="1" data-name="Artículo 1" data-price="49">Agregar al carrito</button>
+          </div>
+          <p>
+            <br>
+            <br>
+              <h3>Especificaciones</h3>
+              - Sistema operativo: iOS 16 <br>
+              - Tecnología celular: 5G <br>
+              - Capacidad de almacenamiento de la memoria: 128 GB <br>
+              - Tecnología de conectividad: Wifi <br>
+              - Color: Medianoche <br>
+              - Tamaño de la pantalla: 6,1 Pulgadas <br>
+              - Tecnología de red inalámbrica: GSM, LTE <br>
+              - Tecnología de cámara: 12 MP
+              <br>
+              <br>
+              <h3>Información Adicional</h3>
+            El producto está reacondicionado, es totalmente funcional y está en     
+            excelentes condiciones. Respaldado por la garantía de 90 días de Amazon 
+            Renewed. <br><br>
+            - Este producto usado no tiene certificación de Apple, pero proveedores 
+            cualificados de Amazon lo han inspeccionado, probado y limpiado 
+            profesionalmente. <br><br>
+            - Este producto está en "Condición excelente". No muestra signos de 
+            daños cosméticos visibles desde una distancia de 30 centímetros. <br>               <br>
+            - Este producto tendrá una batería que supere el 80 % de capacidad en               comparación con uno nuevo. <br><br>
+            - Es posible que los accesorios no sean originales, pero serán                       compatibles y totalmente operativos. Es posible que el producto venga               en una caja genérica. <br><br>
+            - El producto vendrá con una herramienta para retirar la SIM, un                     cargador y un cable de carga. Los auriculares y la tarjeta SIM no                   están incluidos.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Menú lateral -->
+  <div id="sidebar" class="sidebar">
+    <a href="javascript:void(0)" class="close-btn" onclick="closeSidebar()">&times;</a>
+    <a href="index.html">Inicio</a>
+    <a href="articulos.html">Artículos</a>
+    <a href="contacto.html">Contacto</a>
+    <a href="sobre_nosotros.html">Sobre Nosotros</a>
+  </div>
+
+  <!-- Pie de página -->
+  <footer class="footer">
+    <div>Contacto: ejemplo@correo.com | Teléfono: +123456789</div>
+    <div>
+      <a href="#">Facebook</a>
+      <a href="#">Twitter</a>
+      <a href="#">Instagram</a>
+      <!-- Hipervínculo para "Sobre Nosotros" -->
+      <a href="sobre_nosotros.html" onclick="scrollToFooter()">Sobre Nosotros</a>
+    </div>
+  </footer>
+
+  <script>
+    // Función para abrir el menú lateral
+    function openSidebar() {
+      document.getElementById("sidebar").style.width = "250px";
+    }
+
+    // Función para cerrar el menú lateral
+    function closeSidebar() {
+      document.getElementById("sidebar").style.width = "0";
+    }
+
+    // Función para desplazarse al pie de página
+    function scrollToFooter() {
+      document.querySelector('.footer').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    document.getElementById('logo').addEventListener('click', function(event) {
+      // Volver a la página principal
+      event.preventDefault(); // Evitar que se abra la página de destino del logo
+      window.location.href = 'index.html';
+    });
+
+    function changeImage(element) {
+      var mainImage = document.getElementById('main-image');
+      mainImage.src = element.src;
+    }
+    
+    window.addEventListener('load', function() {
+      var footerHeight = document.querySelector('.footer').offsetHeight;
+      document.querySelector('.article').style.marginBottom = footerHeight + 'px';
+    });
+  </script>
+</body>
+</html>

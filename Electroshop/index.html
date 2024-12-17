@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página Principal</title>
+  <style>
+    /* Estilos CSS para la barra de navegación */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #051517;
+      color: white;
+      padding: 10px 20px;
+    }
+
+    /* Estilos CSS para los botones */
+    .btn {
+      padding: 8px 16px;
+      background-color: #05181B;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #777;
+    }
+
+    /* Estilos CSS para el menú lateral */
+    .sidebar {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: #05181B;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+      z-index: 1000;
+    }
+
+    .sidebar a {
+      padding: 10px 15px;
+      text-decoration: none;
+      font-size: 20px;
+      color: white;
+      display: block;
+      transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #777;
+    }
+
+    .sidebar .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 24px;
+    }
+
+    /* Estilos CSS para la lista de artículos destacados y recién añadidos */
+    .carousel {
+      margin: 20px 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .carousel-title {
+      text-align: center;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .carousel-container {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+
+    .carousel-item {
+      flex: 0 0 33.33%; /* Ancho de cada imagen */
+      margin-right: 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .carousel-item img {
+      width: 220px;
+      height: 150px;
+      object-fit: contain;
+    }
+
+    .carousel-item .caption {
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      padding: 5px;
+      font-size: 14px;
+    }
+
+    /* Estilos CSS para el pie de página */
+    .footer {
+      background-color: #051517;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .footer a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    body {
+      background-color: #FFF;
+      margin: 0; /* Elimina el margen predeterminado del cuerpo */
+    }
+
+    h1 {
+      color: #051517;
+    }
+
+    /* Estilos CSS para el botón de contacto */
+    #contactoBtn {
+      cursor: pointer;
+    }
+
+    /* Estilos CSS para la sección del eslogan */
+    .slogan {
+      background-color: #051517;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    .slogan-content h2 {
+      margin: 0;
+      font-size: 24px;
+    }
+    .categories,
+    .testimonials,
+    .policies {
+      margin: 20px auto;
+      max-width: 800px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .categories ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .categories ul li {
+      margin-bottom: 10px;
+    }
+
+    .categories ul li a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    .testimonials .testimonial {
+      margin-bottom: 20px;
+    }
+
+    .policies h2 {
+      margin-top: 0;
+    }
+
+    .policies ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .policies ul li {
+      margin-bottom: 10px;
+    }
+    .faq {
+      margin: 20px auto;
+      max-width: 800px;
+    }
+
+    .faq h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    /* Estilos para las preguntas */
+    details {
+      margin-bottom: 15px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    summary:focus {
+      outline: none;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary:before {
+      content: '➔';
+      display: inline-block;
+      margin-right: 5px;
+    }
+
+    details[open] summary:before {
+      content: '▼';
+    }
+
+    details p {
+      margin-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Parte superior: Barra de navegación -->
+  <div class="navbar">
+    <!-- Reemplazar el texto del botón con la imagen -->
+    <img src="menu.png" alt="Menu" class="btn" id="menuBtn" onclick="openSidebar()" style="width: 40px; height: 40px;">
+    <a href="#" id="logo"><img src="logo.png" alt="Logo" width="111" height="85"></a>
+    <input type="text" class="featured-items" size="80" placeholder="Buscar...">
+    
+    <a href="articulos.html" class="btn">Artículos</a>
+    <!-- Botón de contacto -->
+    <div id="contactoBtn" class="btn" onclick="scrollToFooter()">Contacto</div>
+  </div>
+
+  <!-- Sección con el eslogan -->
+  <section class="slogan">
+    <div class="slogan-content">
+      <h2>ElectroShop: Tu destino para la innovación electrónica</h2>
+    </div>
+  </section>
+
+  <!-- Menú lateral -->
+  <div id="sidebar" class="sidebar">
+    <a href="javascript:void(0)" class="close-btn" onclick="closeSidebar()">&times;</a>
+    <a href="index.html">Inicio</a>
+    <a href="articulos.html">Artículos</a>
+    <a href="contacto.html">Contacto</a>
+    <a href="sobre_nosotros.html">Sobre Nosotros</a>
+  </div>
+
+  <!-- Parte Intermedia: Contenido principal -->
+  <div class="content">
+    <div class="carousel" id="carousel">
+      <div class="carousel-title">Artículos Destacados</div>
+      <div class="carousel-container" id="carousel-container">
+        <div class="carousel-item">
+          <a href="Pr1_Iphone13.html">
+            <img src="iphone.jpg" alt="iPhone">
+            <div class="caption">Apple iPhone 13, 128GB, Medianoche (Reacondicionado)</div>
+          </a>
+        </div>
+        <div class="carousel-item">
+          <a href="Pr2_Arduino.html">
+            <img src="arduinoUNO.jpg" alt="Arduino">
+            <div class="caption">Arduino A000073 Arduino Uno Revision 3 SMD</div>
+          </a>
+        </div>
+        <div class="carousel-item">
+          <a href="Pr3_Laptop_Lenovo.html">
+            <img src="lap.jpg" alt="Lenovo">
+            <div class="caption">Lenovo Thinkpad T480s Ultrabook Laptop 14" FHD</div>
+          </a>
+        </div>
+        <!-- Nuevas imágenes agregadas -->
+        <div class="carousel-item">
+          <a href="Pr4_Enfriador.html">
+            <img src="enfriador.webp" alt="Enfriador">
+            <div class="caption">Enfriador personal de aire, de 700 ml</div>
+          </a>
+        </div>
+        <div class="carousel-item">
+          <a href="Pr5_BarrasLED.html">
+            <img src="barrasled.webp" alt="Barras LED">
+            <div class="caption">Barras ambientales LED Wi-Fi multicolor RGB</div>
+          </a>
+        </div>
+        <div class="carousel-item">
+          <a href="Pr6_Multimetro.html">
+            <img src="multimetro.webp" alt="Multímetro">
+            <div class="caption">Multímetro de gancho true RMS auto rango</div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="carousel" id="carousel-recent">
+      <div class="carousel-title">Artículos Recién añadidos</div>
+      <div class="carousel-container" id="carousel-container-recent">
+        <div class="carousel-item">
+          <a href="Pr7_CamaradeSeguridad.html">
+            <img src="cam.webp" alt="Cámara">
+            <div class="caption">Cámara de seguridad Wi-Fi / Ethernet 3 Mpx robotizada con seguidor de movimiento para exterior</div>
+          </a>
+        </div>
+        <div class="carousel-item">
+          <a href="Pr8_Monitor.html">
+            <img src="monitor.webp" alt="Monitor">
+            <div class="caption">Monitor portátil HDR de 18.5” para laptop</div>
+          </a>
+        </div>
+        <div class="carousel-item">
+          <a href="Pr9_Proyector.html">
+            <img src="proyector.webp" alt="Proyector">
+            <div class="caption">Proyector multimedia Full HD de 14 000 lúmenes con función espejo y Bluetooth</div>
+          </a>
+        </div>
+        <!-- Nuevas imágenes agregadas -->
+        <div class="carousel-item">
+          <a href="Pr10_Display.html">
+            <img src="display.webp" alt="Display">
+            <div class="caption">Display tipo barra multicolor de 10 segmentos</div>
+          </a>
+        </div>
+        <div class="carousel-item">
+          <a href="Pr11_Pilas.html">
+            <img src="pilas.webp" alt="Pilas">
+            <div class="caption">4 baterías recargables USB Li-Ion tipo AA, de 1460 mAh</div>
+          </a>
+        </div>
+        <div class="carousel-item">
+          <a href="Pr12_OLED.html">
+            <img src="oled.webp" alt="OLED">
+            <div class="caption">Display OLED 128x32</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="testimonials">
+    <h2>Testimonios de clientes</h2>
+    <div class="testimonial">
+      <p>"¡Increíble experiencia de compra! La calidad de los productos y el servicio al cliente son excelentes. ¡Definitivamente volveré a comprar!"</p>
+      <p>- María G., Cliente Satisfecha</p>
+    </div>
+    <div class="testimonial">
+      <p>"He comprado varios productos de esta tienda y siempre estoy satisfecho con mi compra. ¡Los recomiendo altamente a todos!"</p>
+      <p>- Juan S., Cliente Fiel</p>
+    </div>
+    <!-- Agrega más testimonios según sea necesario -->
+  </section>
+
+  <!-- Sección de políticas de devolución y envío -->
+  <section class="policies">
+    <h2>Políticas de devolución y envío</h2>
+    <ul>
+      <li>Devolución gratuita dentro de los 30 días posteriores a la compra.</li>
+      <li>Envío estándar gratuito en pedidos superiores a $50.</li>
+      <li>Envío exprés disponible por un cargo adicional.</li>
+      <!-- Agrega más políticas según sea necesario -->
+    </ul>
+  </section>
+
+  <section class="faq">
+    <h2>Preguntas frecuentes (FAQ)</h2>
+
+    <!-- Pregunta 1 -->
+    <details>
+      <summary>¿Cuáles son los métodos de pago aceptados?</summary>
+      <p>Aceptamos pagos con tarjeta de crédito/débito (Visa, MasterCard, American Express), PayPal y transferencia bancaria.</p>
+    </details>
+
+    <!-- Pregunta 2 -->
+    <details>
+      <summary>¿Cuánto tiempo tarda en llegar mi pedido?</summary>
+      <p>El tiempo de entrega depende del método de envío seleccionado. Generalmente, los pedidos estándar llegan en 3-5 días hábiles, mientras que los pedidos exprés pueden llegar en 1-2 días hábiles.</p>
+    </details>
+
+    <!-- Pregunta 3 -->
+    <details>
+      <summary>¿Puedo devolver un producto si no estoy satisfecho?</summary>
+      <p>Sí, aceptamos devoluciones dentro de los 30 días posteriores a la compra. El producto debe estar en su estado original y sin usar para ser elegible para un reembolso completo.</p>
+    </details>
+
+    <!-- Pregunta 4 -->
+    <details>
+      <summary>¿Ofrecen envío internacional?</summary>
+      <p>Sí, ofrecemos envío internacional a varios países. Los costos de envío y los tiempos de entrega pueden variar según el destino.</p>
+    </details>
+
+    <!-- Pregunta 5 -->
+    <details>
+      <summary>¿Cómo puedo realizar un seguimiento de mi pedido?</summary>
+      <p>Una vez que tu pedido haya sido enviado, recibirás un correo electrónico con un enlace de seguimiento. Puedes utilizar este enlace para rastrear tu paquete en tiempo real.</p>
+    </details>
+
+    <!-- Pregunta 6 -->
+    <details>
+      <summary>¿Puedo cambiar mi dirección de envío después de realizar el pedido?</summary>
+      <p>Intentaremos actualizar tu dirección de envío si el pedido aún no ha sido enviado. Por favor, contáctanos lo antes posible si necesitas realizar cambios en tu dirección.</p>
+    </details>
+
+    <!-- Pregunta 7 -->
+    <details>
+      <summary>¿Ofrecen garantía en sus productos?</summary>
+      <p>Sí, ofrecemos garantía en la mayoría de nuestros productos. La duración de la garantía puede variar según el producto. Consulta la página de detalles del producto para obtener información específica sobre la garantía.</p>
+    </details>
+
+    <!-- Pregunta 8 -->
+    <details>
+      <summary>¿Cómo puedo contactar con el servicio al cliente?</summary>
+      <p>Puedes contactarnos por correo electrónico a info@tutienda.com o por teléfono al +123456789. Nuestro equipo de servicio al cliente estará encantado de ayudarte con cualquier pregunta o inquietud que tengas.</p>
+    </details>
+
+    <!-- Pregunta 9 -->
+    <details>
+      <summary>¿Cuál es su política de privacidad?</summary>
+      <p>Nuestra política de privacidad detalla cómo recopilamos, utilizamos y protegemos tu información personal. Puedes leer nuestra política de privacidad completa en nuestra página de políticas.</p>
+    </details>
+
+    <!-- Pregunta 10 -->
+    <details>
+      <summary>¿Cómo puedo realizar un cambio en mi pedido?</summary>
+      <p>Si necesitas realizar un cambio en tu pedido después de haberlo realizado, por favor contáctanos lo antes posible. Haremos nuestro mejor esfuerzo para ayudarte con tu solicitud de cambio.</p>
+    </details>
+  </section>
+
+  <!-- Pie de página -->
+  <footer class="footer">
+    <div>Contacto: ejemplo@correo.com | Teléfono: +123456789</div>
+    <div>
+      <a href="#">Facebook</a>
+      <a href="#">Twitter</a>
+      <a href="#">Instagram</a>
+      <!-- Hipervínculo para "Sobre Nosotros" -->
+      <a href="sobre_nosotros.html" onclick="scrollToFooter()">Sobre Nosotros</a>
+    </div>
+  </footer>
+
+  <script>
+    // Función para abrir el menú lateral
+    function openSidebar() {
+      document.getElementById("sidebar").style.width = "250px";
+    }
+
+    // Función para cerrar el menú lateral
+    function closeSidebar() {
+      document.getElementById("sidebar").style.width = "0";
+    }
+
+    // Función para desplazarse al pie de página
+    function scrollToFooter() {
+      document.querySelector('.footer').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    document.getElementById('logo').addEventListener('click', function(event) {
+      // Volver a la página principal
+      event.preventDefault(); // Evitar que se abra la página de destino del logo
+      window.location.href = 'index.html';
+    });
+
+    // Carrusel de imágenes para artículos destacados
+    let carouselContainer = document.getElementById('carousel-container');
+    let carouselItems = document.querySelectorAll('.carousel-item');
+    let currentIndex = 0;
+    let interval;
+
+    function startCarousel() {
+      interval = setInterval(() => {
+        currentIndex = (currentIndex + 1) % carouselItems.length;
+        updateCarousel();
+      }, 2000); // Cambiar la imagen cada 2 segundos
+    }
+
+    function updateCarousel() {
+      let position = -currentIndex * carouselItems[0].offsetWidth;
+      carouselContainer.style.transition = 'transform 0.5s ease-in-out';
+      carouselContainer.style.transform = `translateX(${position}px)`;
+    }
+
+    startCarousel();
+
+    carouselContainer.addEventListener('transitionend', () => {
+      if (currentIndex === carouselItems.length - 1) {
+        setTimeout(() => {
+          carouselContainer.style.transition = 'none';
+          currentIndex = 0;
+          updateCarousel();
+        }, 0);
+      }
+    });
+
+    // Carrusel de imágenes para artículos recién añadidos
+    let carouselContainerRecent = document.getElementById('carousel-container-recent');
+    let carouselItemsRecent = document.querySelectorAll('.carousel-item');
+    let currentIndexRecent = 0;
+    let intervalRecent;
+
+    function startCarouselRecent() {
+      intervalRecent = setInterval(() => {
+        currentIndexRecent = (currentIndexRecent + 1) % carouselItemsRecent.length;
+        updateCarouselRecent();
+      }, 2000); // Cambiar la imagen cada 2 segundos
+    }
+
+    function updateCarouselRecent() {
+      let positionRecent = -currentIndexRecent * carouselItemsRecent[0].offsetWidth;
+      carouselContainerRecent.style.transition = 'transform 0.5s ease-in-out';
+      carouselContainerRecent.style.transform = `translateX(${positionRecent}px)`;
+    }
+
+    startCarouselRecent();
+
+    carouselContainerRecent.addEventListener('transitionend', () => {
+      if (currentIndexRecent === carouselItemsRecent.length - 1) {
+        setTimeout(() => {
+          carouselContainerRecent.style.transition = 'none';
+          currentIndexRecent = 0;
+          updateCarouselRecent();
+        }, 0);
+      }
+    });
+  </script>
+</body>
+</html>
